@@ -1,0 +1,163 @@
+/* Глобальные переменные для цветов, шрифтов и тд. */
+:root {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-card: #141414;
+  --color-silver-100: #e8e8e8;
+  --color-silver-300: #a8a8a8;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #a8a8a8;
+  --color-text-muted: #666666;
+  --color-border: #2a2a2a;
+  --color-border-silver: #4a4a4a;
+  --color-border-highlight: #808080;
+  --gradient-silver: linear-gradient(135deg, #707070 0%, #c0c0c0 40%, #e8e8e8 50%, #c0c0c0 60%, #707070 100%);
+  --gradient-silver-subtle: linear-gradient(90deg, transparent 0%, #606060 25%, #c0c0c0 45%, #e0e0e0 50%, #c0c0c0 55%, #606060 75%, transparent 100%);
+
+  /* Золотистый цвет заголовков Games, About, Contact. */
+  --gradient-heading: linear-gradient(105deg, #423f3b 0%, #5a5752 26%, #726e68 36%, #9c9890 44%, #d4cfc4 48%, #e4dfd2 50%, #d4cfc4 52%, #9c9890 56%, #726e68 64%, #5a5752 74%, #423f3b 100%);
+  --gradient-heading-position: 50% 50%;
+
+  --font-family-heading: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-section: 2rem;
+  
+  --spacing-sm: 0.5rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-4xl: 6rem;
+  --header-height: 72px;
+  --max-width: 1200px;
+  --border-radius-lg: 10px;
+  --transition-base: 0.25s ease;
+
+  --color-bg-primary-90: rgba(10, 10, 10, 0.9);
+  --color-silver-200-10: rgba(192, 192, 192, 0.1);
+  --color-silver-400-10: rgba(128, 128, 128, 0.1);
+
+  /* Фон - радиальный градиент за секциями. */
+  --bg-accent-radial: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(30, 30, 30, 0.6) 0%,
+    transparent 60%
+  );
+}
+
+/* Сброс и настройка базовых стилей браузера. */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Edge
+  }
+}
+
+body {
+  position: relative;
+  font-family: var(--font-inter), "Segoe UI", Arial, sans-serif;
+  --font-family-heading: var(--font-montserrat), "Inter", "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* noise-текстура поверх фона. */
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* Section titles (Games, About, Contact) — единый размер и выравнивание */
+.section-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-section);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 var(--spacing-2xl);
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  background: var(--gradient-heading);
+  background-size: 180% 120%;
+  background-position: var(--gradient-heading-position);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  // Подсветка заголовков.
+  filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35))
+  drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));  
+
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+
+/* Utility */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

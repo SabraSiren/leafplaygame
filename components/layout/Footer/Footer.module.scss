@@ -1,0 +1,22 @@
+.footer {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+
+  &__privacyLink {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    transition: color var(--transition-base);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-silver-300);
+    }
+  }
+
+  &__copy {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-sm);
+  }
+}

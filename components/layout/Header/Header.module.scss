@@ -1,0 +1,78 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  background-color: var(--color-bg-primary-90);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__logoImg {
+    height: 36px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35))
+  drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));   // Подсветка лого
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin-left: auto;
+    margin-right: 60px;
+  }
+
+  &__navLink {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-silver-300);
+    transition: color var(--transition-base);
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: var(--spacing-sm) 0;
+    font-family: inherit;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gradient-silver);
+      transition: width var(--transition-base);
+    }
+
+    &:hover {
+      color: var(--color-silver-100);
+      filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35)) 
+      drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));  // Подсветка ссылок навигации
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
