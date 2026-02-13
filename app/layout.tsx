@@ -1,17 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { LocaleProvider } from "@/context/LocaleContext";
-import { Geist_Mono, Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.scss";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
   display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 const montserrat = Montserrat({
@@ -39,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <body>
         <LocaleProvider>{children}</LocaleProvider>
       </body>

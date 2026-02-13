@@ -1,11 +1,19 @@
+import dynamic from "next/dynamic";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
-import { About } from "@/components/sections/About/About";
 import { GamesSection } from "@/components/sections/Games/GamesSection";
-import { Contact } from "@/components/sections/Contact/Contact";
 import { GAMES } from "@/content/games";
 import { SOCIAL_LINKS } from "@/content/socials";
 import dividerStyles from "@/styles/divider.module.scss";
+
+const About = dynamic(() =>
+  import("@/components/sections/About/About").then((m) => ({ default: m.About }))
+);
+const Contact = dynamic(() =>
+  import("@/components/sections/Contact/Contact").then((m) => ({
+    default: m.Contact,
+  }))
+);
 
 export default function Page() {
   return (

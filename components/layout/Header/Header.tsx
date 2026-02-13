@@ -22,6 +22,9 @@ export function Header() {
             src="/logo.svg"
             alt="Studio logo"
             className={styles["header__logoImg"]}
+            width={240}
+            height={45}
+            fetchPriority="high"
           />
         </a>
 
