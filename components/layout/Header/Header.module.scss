@@ -6,6 +6,7 @@
   height: var(--header-height);
   z-index: 100;
   background-color: var(--color-bg-primary-90);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   display: flex;

@@ -1,5 +1,6 @@
 "use client";
 
+import { STUDIO_NAME } from "@/content/site";
 import { Container } from "@/components/layout/Container/Container";
 import styles from "./Footer.module.scss";
 import { useLocale } from "@/context/LocaleContext";
@@ -15,7 +16,7 @@ export function Footer() {
           {t.footer.privacyPolicy}
         </a>
         <p className={styles["footer__copy"]}>
-          {`\u00A9 ${year} ${t.studioName}. ${t.footer.copyright}`}
+          {`\u00A9 ${year} ${STUDIO_NAME}. ${t.footer.copyright}`}
         </p>
       </Container>
     </footer>

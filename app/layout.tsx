@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { LocaleProvider } from "@/context/LocaleContext";
 import { Geist_Mono, Inter, Montserrat } from "next/font/google";
 import "./globals.scss";
 
@@ -31,7 +32,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-import { LocaleProvider } from "@/context/LocaleContext";
 
 export default function RootLayout({
   children,
@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${geistMono.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geistMono.variable} ${montserrat.variable}`}>
+      <body>
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

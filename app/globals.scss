@@ -18,7 +18,9 @@
   --gradient-heading: linear-gradient(105deg, #423f3b 0%, #5a5752 26%, #726e68 36%, #9c9890 44%, #d4cfc4 48%, #e4dfd2 50%, #d4cfc4 52%, #9c9890 56%, #726e68 64%, #5a5752 74%, #423f3b 100%);
   --gradient-heading-position: 50% 50%;
 
-  --font-family-heading: "Inter", "Segoe UI", Arial, sans-serif;
+  
+  --font-family-primary: var(--font-inter), "Segoe UI", Arial, sans-serif;
+  --font-family-heading: var(--font-montserrat), "Inter", "Segoe UI", Arial, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -70,8 +72,7 @@ html {
 
 body {
   position: relative;
-  font-family: var(--font-inter), "Segoe UI", Arial, sans-serif;
-  --font-family-heading: var(--font-montserrat), "Inter", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-family-primary);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -158,6 +159,7 @@ img {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }

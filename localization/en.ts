@@ -1,7 +1,4 @@
-
 export const en = {
-  studioName: "LeafPlay",
-
   about: {
     title: "About",
     description: `We are an independent game development studio passionate about crafting immersive digital

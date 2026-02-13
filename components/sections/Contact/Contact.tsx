@@ -33,6 +33,7 @@ export function Contact({ links }: ContactProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
+              title={link.label}
             >
               <Image
                 src={link.iconSrc}
