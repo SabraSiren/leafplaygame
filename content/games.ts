@@ -18,6 +18,7 @@ export const GAMES: GameItem[] = [
     title: "GeoHell",
     mediaSrc: "/games_media/geohell/geohell_preview.mp4",
   },
+
 ];
   
   

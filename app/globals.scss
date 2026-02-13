@@ -35,6 +35,9 @@
   --spacing-4xl: 6rem;
   --header-height: 72px;
   --max-width: 1200px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
   --border-radius-lg: 10px;
   --transition-base: 0.25s ease;
 
@@ -116,10 +119,10 @@ img {
 }
 
 
-/* Section titles (Games, About, Contact) — единый размер и выравнивание */
+/* Section titles (Games, About, Contact) — плавное масштабирование без лишних медиа */
 .section-title {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-section);
+  font-size: clamp(1.5rem, 5vw + 1.25rem, var(--font-size-section));
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: 0.08em;
@@ -138,14 +141,8 @@ img {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  // Подсветка заголовков.
   filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35))
-  drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));  
-
-
-  @media (max-width: 768px) {
-    font-size: var(--font-size-2xl);
-  }
+    drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));
 }
 
 

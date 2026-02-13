@@ -41,6 +41,37 @@
     margin-right: 60px;
   }
 
+  /* Планшет и узкий экран: компактнее лого и навигация */
+  @media (max-width: 768px) {
+    &__nav {
+      gap: 1rem;
+      margin-right: var(--spacing-lg);
+    }
+
+    &__logoImg {
+      height: 32px;
+      max-width: 160px;
+    }
+  }
+
+  /* Мобильные: чтобы влезали Games, About, Contact */
+  @media (max-width: 600px) {
+    &__nav {
+      gap: 0.5rem;
+      margin-right: var(--spacing-sm);
+    }
+
+    &__logoImg {
+      height: 28px;
+      max-width: 120px;
+    }
+
+    &__navLink {
+      font-size: var(--font-size-xs);
+      letter-spacing: 0.04em;
+    }
+  }
+
   &__navLink {
     font-size: var(--font-size-sm);
     font-weight: 500;

@@ -15,46 +15,46 @@
   &__grid {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
     gap: var(--spacing-xl);
 
-    &[data-count="1"] > .games__gridItem {
-      width: 100%;
-      max-width: 700px;
-    }
+    /* 3+ карточек: в ряд по 3, 4-я и далее — новая строка того же размера */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-    &[data-count="2"] > .games__gridItem {
-      width: calc(50% - var(--spacing-xl));
-      max-width: 540px;
-    }
+    /* 1 карточка: по центру, крупная */
+    &[data-count="1"] {
+      grid-template-columns: 1fr;
+      justify-items: center;
 
-    &[data-count="3"] > .games__gridItem {
-      width: calc(33.333% - var(--spacing-xl));
-      max-width: 380px;
-    }
-
-    &[data-count="4"] > .games__gridItem,
-    &[data-count="5"] > .games__gridItem,
-    &[data-count="6"] > .games__gridItem {
-      width: calc(33.333% - var(--spacing-xl));
-      max-width: 380px;
-    }
-
-    @media (max-width: 768px) {
-      &[data-count="2"] > .games__gridItem,
-      &[data-count="3"] > .games__gridItem,
-      &[data-count="4"] > .games__gridItem,
-      &[data-count="5"] > .games__gridItem,
-      &[data-count="6"] > .games__gridItem {
+      > * {
+        max-width: 700px;
         width: 100%;
-        max-width: 540px;
       }
+    }
+
+    /* 2 карточки: равномерно по центру, чуть меньше */
+    &[data-count="2"] {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 3 карточки: явно три колонки одинакового размера */
+    &[data-count="3"] {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &__gridItem {
     box-sizing: border-box;
+    min-width: 0;
+  }
+
+  /* На планшете и мобильном: 2 карточки в столбик */
+  @media (max-width: 768px) {
+    &__grid[data-count="2"] {
+      grid-template-columns: 1fr;
+      max-width: none;
+    }
   }
 }

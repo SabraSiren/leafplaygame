@@ -3,4 +3,9 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
+
+  /* Мобильные устройства */
+  @media (max-width: 600px) {
+    padding: 0 1rem;
+  }
 }
