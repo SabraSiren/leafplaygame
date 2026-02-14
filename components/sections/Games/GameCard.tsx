@@ -70,7 +70,7 @@ export function GameCard({ game, linkToPage = true }: GameCardProps) {
   );
 
   return (
-    <article className={styles.card}>
+    <article className={styles.card} data-card-context={linkToPage ? undefined : "game-page"}>
       {linkToPage ? (
         <Link href={routes.game(game.slug)} className={styles.card__link}>
           {mediaBlock}

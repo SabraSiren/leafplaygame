@@ -21,6 +21,11 @@
       0 0 40px rgba(192, 192, 192, 0.06);
   }
 
+  &[data-card-context="game-page"]:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
   &__link {
     display: flex;
     flex-direction: column;

@@ -36,7 +36,13 @@ export function GamePageLayout({ game, children }: GamePageLayoutProps) {
               {game.title}
             </h1>
             <div className={styles.cardWrap}>
-              <GameCard game={game} linkToPage={false} />
+              {game.slug === "geohell" ? (
+                <div className={geohellStyles.cardBorderWrap}>
+                  <GameCard game={game} linkToPage={false} />
+                </div>
+              ) : (
+                <GameCard game={game} linkToPage={false} />
+              )}
             </div>
             {children}
           </section>

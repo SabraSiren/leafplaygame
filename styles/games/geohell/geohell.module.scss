@@ -2,9 +2,57 @@
 // Класс .root вешается на main в GamePageLayout при game.slug === "geohell".
 
 .root {
-  // Заголовки — Orbitron Extrabold (800). Текст описания — как на главной (Inter).
   :global(.section-title) {
     font-family: var(--font-orbitron), var(--font-family-heading);
     font-weight: 800;
+  }
+}
+
+// Обёртка карточки GeoHell: единая бордовая полоса по контуру, вращение по часовой стрелке.
+.cardBorderWrap {
+  position: relative;
+  padding: 3px;
+  border-radius: var(--border-radius-lg);
+  background: var(--color-border-silver);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200%;
+    height: 200%;
+    margin-left: -100%;
+    margin-top: -100%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 48deg,
+      rgba(90, 20, 35, 0.15) 54deg,
+      rgb(81, 15, 33) 60deg,
+      rgb(130, 40, 60) 85deg,
+      rgb(147, 76, 92) 110deg,
+      rgb(130, 40, 60) 135deg,
+      rgb(82, 18, 35) 150deg,
+      rgba(90, 20, 35, 0.15) 156deg,
+      transparent 162deg,
+      transparent 360deg
+    );
+    animation: geohellBorderSpin 2.5s linear infinite;
+    z-index: 0;
+  }
+
+  :global([class*="card"]) {
+    position: relative;
+    z-index: 1;
+    border: none;
+    border-radius: calc(var(--border-radius-lg) - 3px);
+  }
+}
+
+@keyframes geohellBorderSpin {
+  to {
+    transform: rotate(360deg); /* по часовой стрелке (вправо) */
   }
 }
