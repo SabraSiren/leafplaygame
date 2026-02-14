@@ -14,9 +14,9 @@ export const GAMES: GameItem[] = [
     mediaSrc: "/games_media/geohell/geohell_preview.mp4",
   },
   {
-    id: "1",
-    title: "GeoHell",
-    mediaSrc: "/games_media/geohell/geohell_preview.mp4",
+    id: "2",
+    title: "Shoot",
+    mediaSrc: "/games_media/shoot/shoot_preview.mp4",
   },
 
 ];

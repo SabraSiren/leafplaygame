@@ -3,9 +3,11 @@
 import { Container } from "@/components/layout/Container/Container";
 import styles from "./Header.module.scss";
 import { useLocale } from "@/context/LocaleContext";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const { t } = useLocale();
+  const pathname = usePathname();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -14,10 +16,22 @@ export function Header() {
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header className={styles.header} role="banner">
       <Container className={styles.header__container}>
-        <a href="/" className={styles["header__logo"]} aria-label="Home">
+        <a
+          href="/"
+          className={styles["header__logo"]}
+          aria-label="Home"
+          onClick={handleLogoClick}
+        >
           <img
             src="/logo.svg"
             alt="Studio logo"
