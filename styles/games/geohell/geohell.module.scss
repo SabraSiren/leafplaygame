@@ -8,6 +8,22 @@
   }
 }
 
+// Общий градиент полосы (полоса в середине 0–360°, без пересечения шва).
+$geohell-band-gradient: conic-gradient(
+  from 0deg,
+  transparent 0deg,
+  transparent 100deg,
+  rgba(100, 20, 45, 0.5) 108deg,
+  rgb(95, 18, 40) 115deg,
+  rgb(140, 35, 65) 145deg,
+  rgb(175, 50, 85) 180deg,
+  rgb(140, 35, 65) 215deg,
+  rgb(95, 18, 40) 245deg,
+  rgba(100, 20, 45, 0.5) 252deg,
+  transparent 260deg,
+  transparent 360deg
+);
+
 // Обёртка карточки GeoHell: единая бордовая полоса по контуру, вращение по часовой стрелке.
 .cardBorderWrap {
   position: relative;
@@ -15,6 +31,22 @@
   border-radius: var(--border-radius-lg);
   background: var(--color-border-silver);
   overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200%;
+    height: 200%;
+    margin-left: -100%;
+    margin-top: -100%;
+    background: $geohell-band-gradient;
+    animation: geohellBorderSpin 2.5s linear infinite;
+    filter: blur(8px);
+    opacity: 0.85;
+    z-index: 0;
+  }
 
   &::before {
     content: "";
@@ -25,27 +57,14 @@
     height: 200%;
     margin-left: -100%;
     margin-top: -100%;
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 48deg,
-      rgba(90, 20, 35, 0.15) 54deg,
-      rgb(81, 15, 33) 60deg,
-      rgb(130, 40, 60) 85deg,
-      rgb(147, 76, 92) 110deg,
-      rgb(130, 40, 60) 135deg,
-      rgb(82, 18, 35) 150deg,
-      rgba(90, 20, 35, 0.15) 156deg,
-      transparent 162deg,
-      transparent 360deg
-    );
+    background: $geohell-band-gradient;
     animation: geohellBorderSpin 2.5s linear infinite;
-    z-index: 0;
+    z-index: 1;
   }
 
   :global([class*="card"]) {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     border: none;
     border-radius: calc(var(--border-radius-lg) - 3px);
   }
