@@ -1,0 +1,14 @@
+.main {
+  padding-top: calc(var(--header-height) + var(--spacing-2xl));
+  padding-bottom: 0;
+}
+
+.content {
+  padding-bottom: var(--spacing-2xl);
+}
+
+.cardWrap {
+  max-width: 640px;
+  margin: 0 auto var(--spacing-2xl);
+  width: 100%;
+}

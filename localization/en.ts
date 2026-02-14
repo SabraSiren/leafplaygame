@@ -9,6 +9,23 @@ export const en = {
   games: {
     title: "Games",
   },
+  gamePage: {
+    about: {
+      title: "About",
+    },
+    download: {
+      title: "Download",
+    },
+    games: {
+      geohell: {
+        description: `GeoHell is a fast-paced 2D platformer where you control a cube trapped in a dark and unforgiving world. Navigate through deadly obstacles and relentless enemies that can eliminate you with a single touch. The further you progress, the more intense and challenging the journey becomes.
+         Dodge every hazard, survive as long as you can, and beat your highest distance record.`,
+      },
+      shoot: {
+        description: `Shoot is a fast-paced action game. Master the controls and clear the levels.`,
+      },
+    },
+  },
   footer: {
     privacyPolicy: "Privacy Policy",
     copyright: "All rights reserved.",

@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
 
   const gamePages = GAMES.map((game) => ({
-    url: `${baseUrl}${routes.game(game.id)}`,
+    url: `${baseUrl}${routes.game(game.slug)}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,

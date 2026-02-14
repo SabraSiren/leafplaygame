@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { LocaleProvider } from "@/context/LocaleContext";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Orbitron } from "next/font/google";
 import { STUDIO_NAME } from "@/content/site";
 import "./globals.scss";
 
@@ -14,6 +14,13 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   weight: "700",
   subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  weight: "800",
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -72,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${orbitron.variable}`}>
       <body>
         <LocaleProvider>{children}</LocaleProvider>
       </body>

@@ -11,6 +11,64 @@
     background: var(--bg-accent-radial);
   }
 
+  &__downloadContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__storeLink,
+  &__storeIconWrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border-silver);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    color: var(--color-silver-300);
+    transition: transform var(--transition-base), filter var(--transition-base),
+      border-color var(--transition-base), background-color var(--transition-base);
+
+    &:hover {
+      border-color: var(--color-border-highlight);
+      background-color: var(--color-silver-400-10);
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1) brightness(1.15);
+    }
+  }
+
+  &__storeLink:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 16px rgba(192, 192, 192, 0.25));
+  }
+
+  &__storeIcon {
+    display: block;
+    width: 56px;
+    height: auto;
+    max-width: 100%;
+    transition: filter var(--transition-base);
+    filter: brightness(0) invert(1);
+
+    @media (min-width: 768px) {
+      width: 64px;
+    }
+  }
+
+  &__storePlaceholder {
+    min-height: 120px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px dashed var(--color-border-silver);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-silver-400-10);
+  }
+
   &__icons {
     position: relative;
     z-index: 1;

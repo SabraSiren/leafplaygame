@@ -1,0 +1,10 @@
+// Стили страницы игры GeoHell.
+// Класс .root вешается на main в GamePageLayout при game.slug === "geohell".
+
+.root {
+  // Заголовки — Orbitron Extrabold (800). Текст описания — как на главной (Inter).
+  :global(.section-title) {
+    font-family: var(--font-orbitron), var(--font-family-heading);
+    font-weight: 800;
+  }
+}

@@ -21,6 +21,14 @@
       0 0 40px rgba(192, 192, 192, 0.06);
   }
 
+  &__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    color: inherit;
+  }
+
   &__mediaWrap {
     position: relative;
     width: 100%;
