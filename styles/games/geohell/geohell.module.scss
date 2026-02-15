@@ -14,16 +14,10 @@ $geohell-red: #880808;
 // Общий градиент полосы (полоса в середине 0–360°, без пересечения шва).
 $geohell-band-gradient: conic-gradient(
   from 0deg,
-  transparent 0deg,
-  transparent 100deg,
-  rgba(136, 8, 8, 0.5) 108deg,
-  #880808 115deg,
-  rgb(160, 25, 25) 145deg,
-  rgb(200, 40, 40) 180deg,
-  rgb(160, 25, 25) 215deg,
-  #880808 245deg,
-  rgba(136, 8, 8, 0.5) 252deg,
-  transparent 260deg,
+  rgba(136, 8, 8, 0.5) 0deg,
+  #880808 60deg,
+  rgb(200, 40, 40) 120deg,
+  rgba(136, 8, 8, 0.5) 180deg,
   transparent 360deg
 );
 
