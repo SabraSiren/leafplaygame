@@ -24,7 +24,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-lg);
+    padding: 1rem;
     border: 1px solid var(--color-border-silver);
     border-radius: var(--border-radius-lg);
     cursor: pointer;
@@ -49,14 +49,14 @@
 
   &__storeIcon {
     display: block;
-    width: 56px;
+    width: 48px;
     height: auto;
     max-width: 100%;
     transition: filter var(--transition-base);
     filter: brightness(0) invert(1);
 
     @media (min-width: 768px) {
-      width: 64px;
+      width: 56px;
     }
   }
 

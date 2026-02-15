@@ -7,12 +7,12 @@ import { GameCard } from "@/components/sections/Games/GameCard";
 import { Contact } from "@/components/sections/Contact/Contact";
 import dividerStyles from "@/styles/divider.module.scss";
 import geohellStyles from "@/styles/games/geohell/geohell.module.scss";
-import shootStyles from "@/styles/games/shoot/shoot.module.scss";
+import deadblokStyles from "@/styles/games/deadblok/deadblok.module.scss";
 import styles from "./GamePageLayout.module.scss";
 
 const GAME_PAGE_STYLES: Record<string, string> = {
   geohell: geohellStyles.root,
-  shoot: shootStyles.root,
+  deadblok: deadblokStyles.root,
 };
 
 interface GamePageLayoutProps {

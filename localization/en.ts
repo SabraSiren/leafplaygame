@@ -21,8 +21,8 @@ export const en = {
         description: `GeoHell is a fast-paced 2D platformer where you control a cube trapped in a dark and unforgiving world. Navigate through deadly obstacles and relentless enemies that can eliminate you with a single touch. The further you progress, the more intense and challenging the journey becomes.
          Dodge every hazard, survive as long as you can, and beat your highest distance record.`,
       },
-      shoot: {
-        description: `Shoot is a fast-paced action game. Master the controls and clear the levels.`,
+      deadblok: {
+        description: `Dead Blok is a fast-paced action game. Master the controls and clear the levels.`,
       },
     },
   },
