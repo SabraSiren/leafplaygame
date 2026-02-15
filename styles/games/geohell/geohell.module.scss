@@ -1,27 +1,63 @@
 // Стили страницы игры GeoHell.
 // Класс .root вешается на main в GamePageLayout при game.slug === "geohell".
 
+$geohell-red: #880808;
+
 .root {
   :global(.section-title) {
     font-family: var(--font-orbitron), var(--font-family-heading);
     font-weight: 800;
   }
+
+  // Разделители на странице GeoHell — красные с красным свечением под линией
+  > :global([class*="divider"]) {
+    /* Та же схема, что у серебристого: прозрачность по краям, полоса по центру */
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(136, 8, 8, 0.6) 25%,
+      rgb(200, 40, 40) 45%,
+      rgba(220, 80, 80, 0.95) 50%,
+      rgb(200, 40, 40) 55%,
+      rgba(136, 8, 8, 0.6) 75%,
+      transparent 100%
+    );
+    /* Красное свечение под линией, без серебристого оттенка */
+    box-shadow: 0 0 16px rgba(136, 8, 8, 0.5),
+      0 0 32px rgba(200, 40, 40, 0.25),
+      0 0 48px rgba(136, 8, 8, 0.12);
+    filter: drop-shadow(0 0 8px rgba(136, 8, 8, 0.5))
+      drop-shadow(0 0 16px rgba(200, 40, 40, 0.2));
+  }
+
+  // Рамка вокруг иконки Google Play — те же красные цвета и свечение, что у разделителей
+  :global([class*="contact__storeLink"]),
+  :global([class*="contact__storeIconWrap"]) {
+    border-color: rgb(200, 40, 40);
+    box-shadow: 0 0 12px rgba(136, 8, 8, 0.45),
+      0 0 24px rgba(255, 255, 255, 0.12);
+    filter: drop-shadow(0 0 6px rgba(136, 8, 8, 0.4));
+
+    &:hover {
+      border-color: rgba(220, 80, 80, 0.95);
+      box-shadow: 0 0 12px rgba(136, 8, 8, 0.5),
+        0 0 24px rgba(255, 255, 255, 0.18);
+      filter: drop-shadow(0 0 8px rgba(136, 8, 8, 0.45));
+    }
+  }
 }
 
-// Базовый цвет рамки полосы (#880808).
-$geohell-red: #880808;
 
-// Общий градиент полосы (полоса в середине 0–360°, без пересечения шва).
 $geohell-band-gradient: conic-gradient(
   from 0deg,
   rgba(136, 8, 8, 0.5) 0deg,
-  #880808 60deg,
+  $geohell-red 60deg,
   rgb(200, 40, 40) 120deg,
   rgba(136, 8, 8, 0.5) 180deg,
   transparent 360deg
 );
 
-// Обёртка карточки GeoHell: единая бордовая полоса по контуру, вращение по часовой стрелке.
+
 .cardBorderWrap {
   position: relative;
   padding: 3px;
@@ -69,6 +105,6 @@ $geohell-band-gradient: conic-gradient(
 
 @keyframes geohellBorderSpin {
   to {
-    transform: rotate(360deg); /* по часовой стрелке (вправо) */
+    transform: rotate(360deg); 
   }
 }
