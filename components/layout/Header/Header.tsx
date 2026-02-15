@@ -1,13 +1,20 @@
 "use client";
 
+import type { GameItem } from "@/content/games";
 import { Container } from "@/components/layout/Container/Container";
 import styles from "./Header.module.scss";
 import { useLocale } from "@/context/LocaleContext";
 import { usePathname } from "next/navigation";
 
-export function Header() {
+interface HeaderProps {
+  /** При передаче — навигация для страницы игры: название игры, About, Download */
+  game?: GameItem;
+}
+
+export function Header({ game }: HeaderProps) {
   const { t } = useLocale();
   const pathname = usePathname();
+  const isGamePage = Boolean(game);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -22,6 +29,18 @@ export function Header() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+
+  const navItems = isGamePage
+    ? [
+        { label: game!.title, targetId: "game" },
+        { label: t.header.nav.about, targetId: "about" },
+        { label: t.gamePage.download.title, targetId: "download" },
+      ]
+    : [
+        { label: t.header.nav.games, targetId: "games" },
+        { label: t.header.nav.about, targetId: "about" },
+        { label: t.header.nav.contact, targetId: "contact" },
+      ];
 
   return (
     <header className={styles.header} role="banner">
@@ -43,27 +62,16 @@ export function Header() {
         </a>
 
         <nav className={styles["header__nav"]} aria-label="Main navigation">
-          <button
-            className={styles["header__navLink"]}
-            onClick={() => scrollTo("games")}
-            type="button"
-          >
-            {t.games.title}
-          </button>
-          <button
-            className={styles["header__navLink"]}
-            onClick={() => scrollTo("about")}
-            type="button"
-          >
-            {t.about.title}
-          </button>
-          <button
-            className={styles["header__navLink"]}
-            onClick={() => scrollTo("contact")}
-            type="button"
-          >
-            {t.contact.title}
-          </button>
+          {navItems.map(({ label, targetId }) => (
+            <button
+              key={targetId}
+              className={styles["header__navLink"]}
+              onClick={() => scrollTo(targetId)}
+              type="button"
+            >
+              {label}
+            </button>
+          ))}
         </nav>
       </Container>
     </header>

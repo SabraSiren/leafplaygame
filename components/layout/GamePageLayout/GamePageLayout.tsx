@@ -23,11 +23,12 @@ interface GamePageLayoutProps {
 export function GamePageLayout({ game, children }: GamePageLayoutProps) {
   return (
     <>
-      <Header />
+      <Header game={game} />
 
       <main className={[styles.main, GAME_PAGE_STYLES[game.slug]].filter(Boolean).join(" ")}>
         <Container>
           <section
+            id="game"
             className={styles.content}
             data-game-slug={game.slug}
             aria-labelledby="game-page-title"

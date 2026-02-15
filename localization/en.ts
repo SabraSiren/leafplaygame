@@ -1,4 +1,11 @@
 export const en = {
+  header: {
+    nav: {
+      games: "Games",
+      about: "About",
+      contact: "Contact",
+    },
+  },
   about: {
     title: "About",
     description: `We are an independent game development studio passionate about crafting immersive digital
@@ -33,6 +40,17 @@ export const en = {
   },
   contact: {
     title: "Contact",
+  },
+  privacyPage: {
+    title: "Privacy Policy",
+    lastUpdated: "Last updated:",
+    paragraphs: [
+      `This Privacy Policy describes how we collect, use, and protect information when you use our games and visit our website. By using our services, you agree to the practices described below.`,
+      `We may collect minimal data necessary to provide and improve our games (for example, in-game progress or device information). We do not sell your personal data to third parties.`,
+      `Our games may use third-party services (such as analytics or ads) that have their own privacy policies. We encourage you to review those policies.`,
+      `We may update this policy from time to time. Continued use of our services after changes constitutes acceptance of the updated policy.`,
+      `If you have questions about this Privacy Policy, please contact us through the channels provided on our website.`,
+    ],
   },
 } as const;
 
