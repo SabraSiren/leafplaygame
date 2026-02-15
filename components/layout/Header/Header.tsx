@@ -42,8 +42,15 @@ export function Header({ game }: HeaderProps) {
         { label: t.header.nav.contact, targetId: "contact" },
       ];
 
+  const hideNavOnMobile =
+    pathname === "/privacy" || pathname.startsWith("/games/");
+
   return (
-    <header className={styles.header} role="banner">
+    <header
+      className={styles.header}
+      role="banner"
+      data-hide-nav-mobile={hideNavOnMobile ? "true" : undefined}
+    >
       <Container className={styles.header__container}>
         <a
           href="/"
