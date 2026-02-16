@@ -60,6 +60,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -119,10 +120,9 @@ img {
 }
 
 
-/* Section titles (Games, About, Contact) — плавное масштабирование без лишних медиа */
 .section-title {
   font-family: var(--font-family-heading);
-  font-size: clamp(1.5rem, 5vw + 1.25rem, var(--font-size-section));
+  font-size: clamp(1.5rem, 5vw + 1.25rem, var(--font-size-section)); // плавное масштабирование заголовков
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: 0.08em;
@@ -141,7 +141,7 @@ img {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35))
+  filter: drop-shadow(0 0 10px rgba(212, 207, 196, 0.35)) // подсветка заголовков
     drop-shadow(0 0 4px rgba(228, 223, 210, 0.2));
 }
 
