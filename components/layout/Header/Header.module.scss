@@ -40,11 +40,18 @@
     margin-left: auto;
     margin-right: 60px;
 
-    /* На страницах игр и политики — скрыть на мобильных */
     @media (max-width: 768px) {
-      :global([data-hide-nav-mobile="true"]) & {
-        display: none;
-      }
+      display: none;
+    }
+  }
+
+  &__menuButton {
+    display: none;
+    margin-left: auto;
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
     }
   }
 
