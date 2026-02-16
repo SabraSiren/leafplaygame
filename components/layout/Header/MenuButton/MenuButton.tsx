@@ -58,6 +58,7 @@ export function MenuButton({ items, onScrollTo }: MenuButtonProps) {
         ref={buttonRef}
         type="button"
         className={styles.menuButton__trigger}
+        data-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-haspopup="true"

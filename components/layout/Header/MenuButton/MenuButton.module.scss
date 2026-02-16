@@ -18,10 +18,15 @@
     transition: color var(--transition-base), border-color var(--transition-base),
       background-color var(--transition-base);
 
-    &:hover {
+    /* Подсветка при hover только когда меню открыто — иначе при закрытии кликом по кнопке курсор остаётся над ней и кнопка «не гаснет» */
+    &[data-expanded="true"]:hover {
       color: var(--color-silver-100);
       border-color: var(--color-border-highlight);
       background-color: var(--color-silver-400-10);
+
+      img {
+        filter: brightness(0) invert(1);
+      }
     }
 
     &:focus-visible {
@@ -33,7 +38,7 @@
   &__icon {
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(0.66);
   }
 
   &__dropdown {
