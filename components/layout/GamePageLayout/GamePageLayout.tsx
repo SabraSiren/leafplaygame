@@ -62,7 +62,7 @@ export function GamePageLayout({ game, children }: GamePageLayoutProps) {
         />
       </main>
 
-      <Footer />
+      <Footer gameSlug={game.slug} />
     </>
   );
 }

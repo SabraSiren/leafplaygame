@@ -3,9 +3,20 @@
 import styles from "./PrivacyContent.module.scss";
 import { useLocale } from "@/context/LocaleContext";
 
-export function PrivacyContent() {
+interface PrivacyContentProps {
+  /** При передаче показывается политика игры из privacyPage.games[gameSlug] */
+  gameSlug?: string;
+}
+
+export function PrivacyContent({ gameSlug }: PrivacyContentProps) {
   const { t } = useLocale();
-  const { title, lastUpdated, paragraphs } = t.privacyPage;
+  const policy = gameSlug
+    ? (t.privacyPage.games as Record<string, { title: string; lastUpdated: string; paragraphs: readonly string[] }>)[gameSlug]
+    : t.privacyPage;
+
+  if (!policy) return null;
+
+  const { title, lastUpdated, paragraphs } = policy;
 
   return (
     <section className={styles.privacy} aria-labelledby="privacy-title">
@@ -13,7 +24,7 @@ export function PrivacyContent() {
         {title}
       </h1>
       <p className={styles.privacy__meta}>
-        {lastUpdated} {new Date().toLocaleDateString()}
+        {lastUpdated}
       </p>
       <div className={styles.privacy__content}>
         {paragraphs.map((text, i) => (
