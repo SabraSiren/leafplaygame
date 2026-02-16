@@ -79,25 +79,28 @@ export function Contact(props: ContactProps) {
           </div>
         ) : (
           <div className={styles["contact__icons"]}>
-            {props.links.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                className={styles["contact__iconLink"]}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                title={link.label}
-              >
-                <Image
-                  src={link.iconSrc}
-                  alt=""
-                  width={24}
-                  height={24}
-                  aria-hidden
-                />
-              </a>
-            ))}
+            {props.links.map((link) => {
+              const title = link.email ? `${link.label}: ${link.email}` : link.label;
+              return (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  className={styles["contact__iconLink"]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={title}
+                  title={title}
+                >
+                  <Image
+                    src={link.iconSrc}
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden
+                  />
+                </a>
+              );
+            })}
           </div>
         )}
       </Container>
