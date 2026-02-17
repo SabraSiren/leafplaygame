@@ -2,6 +2,7 @@
 
 import type { GameItem } from "@/content/games";
 import { routes } from "@/lib/routes";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import styles from "./GameCard.module.scss";
@@ -58,11 +59,12 @@ export function GameCard({ game, linkToPage = true }: GameCardProps) {
           aria-label={`${game.title} gameplay preview`}
         />
       ) : (
-        <img
+        <Image
           src={src}
           alt={`${game.title} gameplay preview`}
           className={styles.card__media}
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
         />
       )}
       {linkToPage && <h3 className={styles.card__title}>{game.title}</h3>}

@@ -5,19 +5,23 @@ import { Container } from "@/components/layout/Container/Container";
 import { MenuButton, type MenuItem } from "@/components/layout/Header/MenuButton/MenuButton";
 import styles from "./Header.module.scss";
 import { useLocale } from "@/context/LocaleContext";
+import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface HeaderProps {
-  /** При передаче — навигация для страницы игры: название игры, About, Download */
-  game?: GameItem;
-  /** Для страницы политики игры — slug игры (для ссылки на Privacy) */
-  gameSlug?: string;
+interface NavItem {
+  label: string;
+  targetId?: string;
+  href?: string;
 }
 
-export function Header({ game, gameSlug }: HeaderProps) {
+interface HeaderProps {
+  game?: GameItem;
+}
+
+export function Header({ game }: HeaderProps) {
   const { t } = useLocale();
   const pathname = usePathname();
-  const isGamePage = Boolean(game);
 
   const slugFromPath = (() => {
     if (!pathname.startsWith("/games/")) return undefined;
@@ -25,13 +29,13 @@ export function Header({ game, gameSlug }: HeaderProps) {
     return parts[2] ?? undefined;
   })();
 
-  const slug = game?.slug ?? gameSlug ?? slugFromPath;
+  const slug = game?.slug ?? slugFromPath;
+  const isPrivacyPage = pathname === "/privacy" || pathname.endsWith("/privacy");
+  const isGamePage = Boolean(game);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -41,11 +45,12 @@ export function Header({ game, gameSlug }: HeaderProps) {
     }
   };
 
-  const fullNavItems = isGamePage
+  const navItems: NavItem[] = isGamePage
     ? [
         { label: game!.title, targetId: "game" },
         { label: t.header.nav.about, targetId: "about" },
         { label: t.gamePage.download.title, targetId: "download" },
+        { label: t.header.nav.privacy, href: `/games/${slug}/privacy` },
       ]
     : [
         { label: t.header.nav.games, targetId: "games" },
@@ -53,20 +58,14 @@ export function Header({ game, gameSlug }: HeaderProps) {
         { label: t.header.nav.contact, targetId: "contact" },
       ];
 
-  /** Пункты для мобильного меню (без первой секции Game/Games). Меню показывается только на главной и страницах игр. */
-  const menuItems: MenuItem[] = (() => {
-    const itemsWithoutFirst = fullNavItems.slice(1);
-    const result: MenuItem[] = itemsWithoutFirst.map(({ label, targetId }) => ({
-      label,
-      targetId,
-    }));
+  const menuItems: MenuItem[] = navItems.map(({ label, targetId, href }) => ({
+    label,
+    ...(targetId && { targetId }),
+    ...(href && { href }),
+  }));
 
-    const privacyHref = slug ? `/games/${slug}/privacy` : "/privacy";
-    result.push({ label: t.footer.privacyPolicy, href: privacyHref });
-    return result;
-  })();
-
-  const showMenuButton = !pathname.endsWith("/privacy");
+  const showNav = !isPrivacyPage;
+  const showMenuButton = !isPrivacyPage;
 
   return (
     <header className={styles.header} role="banner">
@@ -77,35 +76,44 @@ export function Header({ game, gameSlug }: HeaderProps) {
           aria-label="Home"
           onClick={handleLogoClick}
         >
-          <img
+          <Image
             src="/logo.svg"
             alt="Studio logo"
             className={styles["header__logoImg"]}
             width={240}
             height={45}
-            fetchPriority="high"
+            priority
           />
         </a>
 
-        <nav className={styles["header__nav"]} aria-label="Main navigation">
-          {fullNavItems.map(({ label, targetId }) => (
-            <button
-              key={targetId}
-              className={styles["header__navLink"]}
-              onClick={() => scrollTo(targetId)}
-              type="button"
-            >
-              {label}
-            </button>
-          ))}
-        </nav>
+        {showNav && (
+          <nav className={styles["header__nav"]} aria-label="Main navigation">
+            {navItems.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={styles["header__navLink"]}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.targetId}
+                  className={styles["header__navLink"]}
+                  onClick={() => item.targetId && scrollTo(item.targetId)}
+                  type="button"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
+          </nav>
+        )}
 
         {showMenuButton && (
           <div className={styles["header__menuButton"]}>
-            <MenuButton
-              items={menuItems}
-              onScrollTo={scrollTo}
-            />
+            <MenuButton items={menuItems} onScrollTo={scrollTo} />
           </div>
         )}
       </Container>

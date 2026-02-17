@@ -54,7 +54,7 @@ export function Contact(props: ContactProps) {
                   rel="noopener noreferrer"
                   aria-label="Download on Google Play"
                 >
-                  <img
+                  <Image
                     src={props.storeIconSrc}
                     alt=""
                     width={64}
@@ -64,7 +64,7 @@ export function Contact(props: ContactProps) {
                 </a>
               ) : (
                 <span className={styles["contact__storeIconWrap"]}>
-                  <img
+                  <Image
                     src={props.storeIconSrc}
                     alt="Google Play"
                     width={64}

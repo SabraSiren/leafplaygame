@@ -44,7 +44,7 @@ export default async function GamePrivacyPage({ params }: GamePrivacyPageProps) 
 
   return (
     <>
-      <Header gameSlug={game.slug} />
+      <Header />
 
       <main>
         <Container>
