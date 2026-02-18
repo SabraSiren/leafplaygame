@@ -13,7 +13,7 @@ export function GeoHellDemo({ className }: GeoHellDemoProps) {
       title="GeoHell Demo"
       className={className}
       allow="gamepad; fullscreen"
-      loading="lazy"
+      loading="eager"
       tabIndex={0}
     />
   );

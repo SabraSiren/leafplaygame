@@ -25,11 +25,15 @@ export function DemoPlayer({
 
   return (
     <div className={styles.demoPlayer}>
-      {isPlaying ? (
-        <div className={styles.demoPlayer__game}>
-          {renderDemo({ className: styles.demoPlayer__iframe })}
-        </div>
-      ) : (
+      {/* Игра рендерится сразу для предзагрузки, показывается при клике */}
+      <div
+        className={styles.demoPlayer__game}
+        aria-hidden={!isPlaying}
+        style={{ visibility: isPlaying ? "visible" : "hidden" }}
+      >
+        {renderDemo({ className: styles.demoPlayer__iframe })}
+      </div>
+      {!isPlaying && (
         <>
           <GameMediaPreview
             src={previewSrc}
