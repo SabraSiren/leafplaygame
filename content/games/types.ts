@@ -7,4 +7,6 @@ export interface GameItem {
   storeUrl?: string;
   /** Путь к иконке магазина (например, /icons/play-store.svg). Задаётся в content/games/<slug>.ts */
   storeIconSrc?: string;
+  /** URL демо-версии игры. При наличии на странице игры отображается кнопка Play. */
+  demoUrl?: string;
 }

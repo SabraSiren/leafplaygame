@@ -7,4 +7,5 @@ export const geoHellGame: GameItem = {
   mediaSrc: "/games_media/geohell/geohell_preview.mp4",
   storeUrl: "https://play.google.com/store/apps/details?id=com.geohell.game",
   storeIconSrc: "/socials_icons/googleplay.svg",
+  demoUrl: "https://geohell.ru.tuna.am/",
 };

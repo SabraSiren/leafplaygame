@@ -1,5 +1,6 @@
 import type { GameItem } from "@/content/games";
 import { Container } from "@/components/layout/Container/Container";
+import { DemoCard } from "@/demo";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
 import { About } from "@/components/sections/About/About";
@@ -21,6 +22,12 @@ interface GamePageLayoutProps {
 }
 
 export function GamePageLayout({ game, children }: GamePageLayoutProps) {
+  const cardContent = game.demoUrl ? (
+    <DemoCard game={game} />
+  ) : (
+    <GameCard game={game} linkToPage={false} />
+  );
+
   return (
     <>
       <Header game={game} />
@@ -38,11 +45,9 @@ export function GamePageLayout({ game, children }: GamePageLayoutProps) {
             </h1>
             <div className={styles.cardWrap}>
               {game.slug === "geohell" ? (
-                <div className={geohellStyles.cardBorderWrap}>
-                  <GameCard game={game} linkToPage={false} />
-                </div>
+                <div className={geohellStyles.cardBorderWrap}>{cardContent}</div>
               ) : (
-                <GameCard game={game} linkToPage={false} />
+                cardContent
               )}
             </div>
             {children}

@@ -51,10 +51,10 @@ $geohell-red: #880808;
 $geohell-band-gradient: conic-gradient(
   from 0deg,
   rgba(136, 8, 8, 0.5) 0deg,
-  $geohell-red 60deg,
-  rgb(200, 40, 40) 120deg,
-  rgba(136, 8, 8, 0.5) 180deg,
-  transparent 360deg
+  $geohell-red 90deg,
+  rgb(200, 40, 40) 180deg,
+  $geohell-red 270deg,
+  rgba(136, 8, 8, 0.5) 360deg
 );
 
 
