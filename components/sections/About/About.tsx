@@ -22,8 +22,13 @@ export function About(props: AboutProps = {}) {
     ? t.gamePage.about.title
     : t.about.title;
   const sectionDescription = isGamePage
-    ? ((t.gamePage.games as Record<string, { description: string }>)[props.game.slug]?.description ?? "")
+    ? (t.gamePage.games as Record<string, { description: string | readonly string[] }>)[props.game.slug]
+        ?.description ?? ""
     : t.about.description;
+
+  const paragraphs = Array.isArray(sectionDescription)
+    ? sectionDescription
+    : [sectionDescription];
 
   return (
     <section id="about" className={styles.about} aria-labelledby="about-title">
@@ -33,7 +38,11 @@ export function About(props: AboutProps = {}) {
         </h2>
 
         <div className={styles["about__textContainer"]}>
-          <p className={styles["about__text"]}>{sectionDescription}</p>
+          {paragraphs.map((text, i) => (
+            <p key={i} className={styles["about__text"]}>
+              {text}
+            </p>
+          ))}
         </div>
       </Container>
     </section>

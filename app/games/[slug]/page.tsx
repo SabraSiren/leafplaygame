@@ -14,8 +14,10 @@ const siteUrl =
 function getGameDescription(slug: string): string {
   const t = getTranslations(DEFAULT_LOCALE);
   const description =
-    (t.gamePage.games as Record<string, { description: string }>)[slug]?.description ?? "";
-  return description.trim();
+    (t.gamePage.games as Record<string, { description: string | readonly string[] }>)[slug]
+      ?.description ?? "";
+  const text = Array.isArray(description) ? description[0] ?? "" : description;
+  return text.trim();
 }
 
 function metaDescription(text: string, maxLength = 160): string {
@@ -81,7 +83,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   return (
     <GamePageLayout game={game}>
-      {/* Контент под конкретную игру — добавляется здесь или в отдельном компоненте с game-specific стилями. */}
+      {/* Контент под конкретную игру — добавляется здесь (а лучше - импортом отдельного компонента */}
     </GamePageLayout>
   );
 }

@@ -9,8 +9,7 @@ export const en = {
   },
   about: {
     title: "About",
-    description: `We are an independent game development studio passionate about crafting immersive digital
-     experiences. Our team brings together artists, engineers, and storytellers who share a vision of creating games that push boundaries and captivate players worldwide.
+    description: `We are an independent game development studio passionate about crafting immersive digital experiences. Our team brings together artists, engineers, and storytellers who share a vision of creating games that push boundaries and captivate players worldwide.
     From concept art to final release, every detail is meticulously designed to deliver unforgettable gameplay. 
     We believe in the power of interactive entertainment to inspire, challenge, and connect people across the globe.`,
   },
@@ -24,11 +23,32 @@ export const en = {
     download: {
       title: "Download",
     },
-    playDemo: "Try demo",
+    playDemo: " demo",
     games: {
       geohell: {
-        description: `GeoHell is a fast-paced 2D platformer where you control a cube trapped in a dark and unforgiving world. Navigate through deadly obstacles and relentless enemies that can eliminate you with a single touch. The further you progress, the more intense and challenging the journey becomes.
-         Dodge every hazard, survive as long as you can, and beat your highest distance record.`,
+        description: [
+          `GeoHell is a minimalist 2D endless platformer where precision matters more than speed. You control a black cube running to the right through procedurally generated levels filled with lava, spikes, and deadly enemies. One mistake can end your run — and push you to try again.`,
+          `Gameplay`,
+          `Run, jump, and crouch using a virtual joystick to survive shifting platforms, narrow gaps, and sudden hazards. The further you go, the tougher it gets. Your score is simple: distance in meters.`,
+          `Beat your best run. Then beat it again.`,
+          `Hazards`,
+          `Expect lava pools, spike traps, low ceilings, and flying enemies. Learn patterns, time your jumps, and stay in control. GeoHell rewards focus, precision, and smart movement.`,
+          `Power-ups`,
+          `Use rare power-ups wisely:
+• Clear all enemies on screen
+• Get a short speed boost
+• Respawn at the last checkpoint`,
+          `Earn daily bonuses by reaching distance goals.`,
+          `Progress & Competition`,
+          `Track your all-time best and daily distance. Send your record to the online leaderboard and see how far others made it. A short tutorial gets you started in seconds.`,
+          `Why you'll like GeoHell`,
+          `• Fast, skill-based runs
+• Simple controls, deep challenge
+• Procedurally generated levels
+• Dark, stylish geometric visuals
+• One goal: go farther than ever before`,
+          `One cube. One run. One number that matters.`,
+        ],
       },
       deadblok: {
         description: `Dead Blok is a fast-paced action game. Master the controls and clear the levels.`,
