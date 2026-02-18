@@ -24,6 +24,7 @@ export const en = {
     download: {
       title: "Download",
     },
+    playDemo: "Try demo",
     games: {
       geohell: {
         description: `GeoHell is a fast-paced 2D platformer where you control a cube trapped in a dark and unforgiving world. Navigate through deadly obstacles and relentless enemies that can eliminate you with a single touch. The further you progress, the more intense and challenging the journey becomes.

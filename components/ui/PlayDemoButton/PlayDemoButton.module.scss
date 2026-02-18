@@ -1,0 +1,35 @@
+.playDemoButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-lg);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+  background-color: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--color-border-silver);
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: color var(--transition-base), border-color var(--transition-base),
+    background-color var(--transition-base), filter var(--transition-base);
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: var(--color-silver-100);
+    border-color: var(--color-border-highlight);
+    background-color: rgba(20, 20, 20, 0.9);
+    filter: drop-shadow(0 0 16px rgba(192, 192, 192, 0.25));
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-border-highlight);
+    outline-offset: 2px;
+  }
+}

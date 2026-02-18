@@ -32,7 +32,6 @@ export function DemoCard({ game }: DemoCardProps) {
           gameTitle={game.title}
           renderDemo={renderDemo}
         />
-        <h3 className={cardStyles.card__title}>{game.title}</h3>
       </div>
     </article>
   );

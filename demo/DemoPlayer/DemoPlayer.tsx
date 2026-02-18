@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { PlayDemoButton } from "@/components/ui/PlayDemoButton/PlayDemoButton";
 import { GameMediaPreview } from "@/components/sections/Games/GameMediaPreview";
+import { useLocale } from "@/context/LocaleContext";
 import styles from "./DemoPlayer.module.scss";
 
 interface DemoPlayerProps {
@@ -18,6 +20,7 @@ export function DemoPlayer({
   gameTitle,
   renderDemo,
 }: DemoPlayerProps) {
+  const { t } = useLocale();
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -34,14 +37,15 @@ export function DemoPlayer({
             className={styles.demoPlayer__previewWrap}
             mediaClassName={styles.demoPlayer__preview}
           />
-          <button
-            type="button"
-            className={styles.demoPlayer__playBtn}
-            onClick={() => setIsPlaying(true)}
-            aria-label={`Play ${gameTitle} demo`}
-          >
-            <img src="/icons/play.svg" alt="" width={80} height={80} />
-          </button>
+          <div className={styles.demoPlayer__overlay} aria-hidden />
+          <div className={styles.demoPlayer__playBtnWrap}>
+            <PlayDemoButton
+              onClick={() => setIsPlaying(true)}
+              aria-label={`Play ${gameTitle} demo`}
+            >
+              {t.gamePage.playDemo}
+            </PlayDemoButton>
+          </div>
         </>
       )}
     </div>
