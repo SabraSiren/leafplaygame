@@ -51,7 +51,7 @@
   }
 
   // На планшете и мобильном: 2 карточки в столбик 
-  @media (max-width: var(--breakpoint-md)) {
+  @media (max-width: 768px) {
     &__grid[data-count="2"] {
       grid-template-columns: 1fr;
       max-width: none;

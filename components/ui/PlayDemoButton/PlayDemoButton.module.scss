@@ -5,6 +5,14 @@
   gap: var(--spacing-sm);
   padding: var(--spacing-lg) var(--spacing-lg);
   white-space: nowrap;
+  min-width: 0;
+
+  @media (max-width: 600px) {
+    padding: 0.75rem 1rem;
+    font-size: var(--font-size-sm);
+    white-space: normal;
+    text-align: center;
+  }
   font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   font-weight: 700;
