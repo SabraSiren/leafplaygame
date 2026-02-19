@@ -4,7 +4,6 @@ import styles from "./PrivacyContent.module.scss";
 import { useLocale } from "@/context/LocaleContext";
 
 interface PrivacyContentProps {
-  /** При передаче показывается политика игры из privacyPage.games[gameSlug] */
   gameSlug?: string;
 }
 

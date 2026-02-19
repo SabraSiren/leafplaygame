@@ -8,7 +8,6 @@ import styles from "./GameCard.module.scss";
 
 interface GameCardProps {
   game: GameItem;
-  /** На странице игры карточка без ссылки (только превью). По умолчанию true. */
   linkToPage?: boolean;
 }
 

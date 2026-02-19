@@ -6,7 +6,6 @@ import styles from "./Footer.module.scss";
 import { useLocale } from "@/context/LocaleContext";
 
 interface FooterProps {
-  /** При передаче ссылка ведёт на политику конфиденциальности игры /games/[slug]/privacy */
   gameSlug?: string;
 }
 

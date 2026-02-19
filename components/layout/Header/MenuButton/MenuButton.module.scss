@@ -18,7 +18,7 @@
     transition: color var(--transition-base), border-color var(--transition-base),
       background-color var(--transition-base);
 
-    /* Подсветка при hover только когда меню открыто — иначе при закрытии кликом по кнопке курсор остаётся над ней и кнопка «не гаснет» */
+     // Подсветка при hover только когда меню открыто
     &[data-expanded="true"]:hover {
       color: var(--color-silver-100);
       border-color: var(--color-border-highlight);

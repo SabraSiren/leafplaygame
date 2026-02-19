@@ -2,7 +2,6 @@ import styles from "./Container.module.scss";
 
 interface ContainerProps {
   children: React.ReactNode;
-  /** Дополнительные классы (например, для flex-раскладки в хедере) */
   className?: string;
 }
 

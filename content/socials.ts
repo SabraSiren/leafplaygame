@@ -3,7 +3,7 @@ export interface SocialLink {
   href: string;
   label: string;
   iconSrc: string;
-  email?: string; /** Для mailto-ссылок — чистый email для копирования и подсказки */
+  email?: string; // Для mailto-ссылок
 }
 
 const CONTACT_EMAIL = "leafplaybusiness@gmail.com";

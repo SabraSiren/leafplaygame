@@ -23,7 +23,7 @@ export const en = {
     download: {
       title: "Download",
     },
-    playDemo: " demo",
+    playDemo: " Try demo",
     games: {
       geohell: {
         description: [

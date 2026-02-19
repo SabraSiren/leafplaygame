@@ -1,10 +1,10 @@
 // Стили страницы игры Dead Blok.
 // Класс .root вешается на main в GamePageLayout при game.slug === "deadblok".
 
-$deadblok-color: #40e0d0; // rgb(64, 224, 208)
+$deadblok-color: #40e0d0; 
 
 .root {
-  // Разделители — бирюзовые с бирюзовым свечением под линией
+  // Разделители 
   > :global([class*="divider"]) {
     background: linear-gradient(
       90deg,
@@ -16,6 +16,7 @@ $deadblok-color: #40e0d0; // rgb(64, 224, 208)
       rgba(64, 224, 208, 0.6) 75%,
       transparent 100%
     );
+    // Свечение под разделителем
     box-shadow: 0 0 16px rgba(64, 224, 208, 0.5),
       0 0 32px rgba(100, 235, 220, 0.25),
       0 0 48px rgba(64, 224, 208, 0.12);
@@ -23,7 +24,7 @@ $deadblok-color: #40e0d0; // rgb(64, 224, 208)
       drop-shadow(0 0 16px rgba(100, 235, 220, 0.2));
   }
 
-  // Рамка вокруг иконки Steam — те же бирюзовые цвета и свечение, что у разделителей
+  // Рамка вокруг иконки Steam
   :global([class*="contact__storeLink"]),
   :global([class*="contact__storeIconWrap"]) {
     border-color: rgb(100, 235, 220);

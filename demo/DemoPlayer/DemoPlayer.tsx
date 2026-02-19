@@ -7,11 +7,8 @@ import { useLocale } from "@/context/LocaleContext";
 import styles from "./DemoPlayer.module.scss";
 
 interface DemoPlayerProps {
-  /** URL превью (видео или изображение) */
   previewSrc: string;
-  /** Название игры для alt/aria */
-  gameTitle: string;
-  /** Рендер контента игры (iframe и т.д.) */
+  gameTitle: string; // Название игры для alt/aria 
   renderDemo: (props: { className: string }) => React.ReactNode;
 }
 
@@ -25,7 +22,6 @@ export function DemoPlayer({
 
   return (
     <div className={styles.demoPlayer}>
-      {/* Игра рендерится сразу для предзагрузки, показывается при клике */}
       <div
         className={styles.demoPlayer__game}
         aria-hidden={!isPlaying}
