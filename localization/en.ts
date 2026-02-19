@@ -65,13 +65,33 @@ export const en = {
   },
   privacyPage: {
     title: "Privacy Policy",
-    lastUpdated: "Last updated: 16.02.2026",
+    lastUpdated: "Last updated: 19.02.2026",
     paragraphs: [
-      `This Privacy Policy describes how we collect, use, and protect information when you use our games and visit our website. By using our services, you agree to the practices described below.`,
-      `We may collect minimal data necessary to provide and improve our games (for example, in-game progress or device information). We do not sell your personal data to third parties.`,
-      `Our games may use third-party services (such as analytics or ads) that have their own privacy policies. We encourage you to review those policies.`,
-      `We may update this policy from time to time. Continued use of our services after changes constitutes acceptance of the updated policy.`,
-      `If you have questions about this Privacy Policy, please contact us through the channels provided on our website.`,
+      `This Privacy Policy describes how LeafPlay collects, uses, and protects information when you visit our website and use our services. By accessing this site, you agree to the practices described below.`,
+      `Scope`,
+      `This policy applies to the LeafPlay website. For privacy practices specific to our games, please refer to the individual game privacy policies linked from their respective pages.`,
+      `Information We Collect`,
+      `When you visit our website, we may automatically collect certain technical data necessary for the site to function, such as:
+• Device and browser information
+• IP address and general location.`,
+      `We do not require you to create an account to browse our website. If you contact us (for example, via email), we will receive and store the information you provide.`,
+      `How We Use the Information`,
+      `We use the collected information to:
+• Operate and improve our website
+• Understand how visitors use our site
+• Respond to your inquiries
+• Ensure security and prevent abuse`,
+      `We do not sell, rent, or trade your personal data to third parties for marketing purposes.`,
+      `Third-Party Services`,
+      `Our website may use third-party services (such as hosting, analytics, or embedded content) that have their own privacy policies. When you interact with demo versions of our games or follow links to external stores (Google Play, Steam) and social networks, those services may collect data according to their own policies. We encourage you to review their terms before sharing information.`,
+      `Data Security`,
+      `We take reasonable measures to protect your information. Data transmitted over the internet is encrypted where possible. However, no method of transmission or storage is completely secure.`,
+      `Children's Privacy`,
+      `Our website is not directed at children under 3. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us and we will delete it promptly.`,
+      `Changes to This Policy`,
+      `We may update this Privacy Policy from time to time. The "Last updated" date at the top reflects the most recent changes. Continued use of our website after updates constitutes acceptance of the revised policy.`,
+      `Contact`,
+      `If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us at: leafplaybusiness@gmail.com.`,
     ],
     games: {
       geohell: {
