@@ -1,10 +1,9 @@
 import type { GameItem } from "@/content/games";
 import { Container } from "@/components/layout/Container/Container";
-import { DemoCard } from "@/demo";
+import { GamePageCard } from "./GamePageCard";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
 import { About } from "@/components/sections/About/About";
-import { GameCard } from "@/components/sections/Games/GameCard";
 import { Contact } from "@/components/sections/Contact/Contact";
 import dividerStyles from "@/styles/divider.module.scss";
 import geohellStyles from "@/styles/games/geohell/geohell.module.scss";
@@ -22,11 +21,7 @@ interface GamePageLayoutProps {
 }
 
 export function GamePageLayout({ game, children }: GamePageLayoutProps) {
-  const cardContent = game.demoUrl ? (
-    <DemoCard game={game} />
-  ) : (
-    <GameCard game={game} linkToPage={false} />
-  );
+  const cardContent = <GamePageCard game={game} />;
 
   return (
     <>
