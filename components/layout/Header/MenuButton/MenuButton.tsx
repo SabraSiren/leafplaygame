@@ -65,7 +65,7 @@ export function MenuButton({ items, onScrollTo }: MenuButtonProps) {
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         <Image
-          src="/menu.svg"
+          src="/icons/menu.svg"
           alt=""
           width={24}
           height={24}

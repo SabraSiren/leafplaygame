@@ -1,4 +1,4 @@
-/* Линия между секциями */
+// Линия между секциями 
 .divider {
   width: 100%;
   max-width: var(--max-width);
@@ -7,7 +7,7 @@
   border: none;
   background: var(--gradient-silver-subtle);
 
-  /* Мягкое свечение под линией */ 
+  // Мягкое свечение под линией 
   box-shadow: 0 0 12px rgba(192, 192, 192, 0.15),
     0 0 24px rgba(192, 192, 192, 0.08);
   filter: drop-shadow(0 0 6px rgba(192, 192, 192, 0.12));

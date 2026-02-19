@@ -77,7 +77,7 @@ export function Header({ game }: HeaderProps) {
           onClick={handleLogoClick}
         >
           <Image
-            src="/logo.svg"
+            src="/icons/logo.svg"
             alt="Studio logo"
             className={styles["header__logoImg"]}
             width={240}

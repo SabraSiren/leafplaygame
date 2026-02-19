@@ -4,7 +4,7 @@ import { routes } from "@/lib/routes";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+  (typeof process.env.VERCEL_URL === "string" ? `https://${process.env.VERCEL_URL}` : "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!baseUrl) return [];

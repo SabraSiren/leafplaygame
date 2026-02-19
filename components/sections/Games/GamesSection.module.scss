@@ -18,10 +18,10 @@
     display: grid;
     gap: var(--spacing-xl);
 
-    /* 3+ карточек: в ряд по 3, 4-я и далее — новая строка того же размера */
+    // 3+ карточек: в ряд по 3, 4-я и далее — новая строка того же размера 
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-    /* 1 карточка: по центру, крупная */
+    // 1 карточка: по центру, крупная 
     &[data-count="1"] {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -32,14 +32,14 @@
       }
     }
 
-    /* 2 карточки: равномерно по центру, чуть меньше */
+    // 2 карточки: равномерно по центру, чуть меньше 
     &[data-count="2"] {
       grid-template-columns: repeat(2, 1fr);
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    /* 3 карточки: явно три колонки одинакового размера */
+    // 3 карточки: явно три колонки одинакового размера 
     &[data-count="3"] {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -50,8 +50,8 @@
     min-width: 0;
   }
 
-  /* На планшете и мобильном: 2 карточки в столбик */
-  @media (max-width: 768px) {
+  // На планшете и мобильном: 2 карточки в столбик 
+  @media (max-width: var(--breakpoint-md)) {
     &__grid[data-count="2"] {
       grid-template-columns: 1fr;
       max-width: none;

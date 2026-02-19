@@ -83,7 +83,7 @@ export default async function GamePage({ params }: GamePageProps) {
 
   return (
     <GamePageLayout game={game}>
-      {/* Контент под конкретную игру — добавляется здесь (а лучше - импортом отдельного компонента */}
+      {/* Контент под конкретную игру — добавляется здесь (лучше - импортом отдельного компонента */}
     </GamePageLayout>
   );
 }

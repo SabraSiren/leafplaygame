@@ -9,9 +9,8 @@ $geohell-red: #880808;
     font-weight: 800;
   }
 
-  // Разделители на странице GeoHell — красные с красным свечением под линией
+  // Разделители секций
   > :global([class*="divider"]) {
-    /* Та же схема, что у серебристого: прозрачность по краям, полоса по центру */
     background: linear-gradient(
       90deg,
       transparent 0%,
@@ -22,7 +21,7 @@ $geohell-red: #880808;
       rgba(136, 8, 8, 0.6) 75%,
       transparent 100%
     );
-    /* Красное свечение под линией, без серебристого оттенка */
+    // Свечение под линией разделителя 
     box-shadow: 0 0 16px rgba(136, 8, 8, 0.5),
       0 0 32px rgba(200, 40, 40, 0.25),
       0 0 48px rgba(136, 8, 8, 0.12);
@@ -30,7 +29,7 @@ $geohell-red: #880808;
       drop-shadow(0 0 16px rgba(200, 40, 40, 0.2));
   }
 
-  // Рамка вокруг иконки Google Play — те же красные цвета и свечение, что у разделителей
+  // Рамка вокруг иконки Google Play
   :global([class*="contact__storeLink"]),
   :global([class*="contact__storeIconWrap"]) {
     border-color: rgb(200, 40, 40);
@@ -47,7 +46,7 @@ $geohell-red: #880808;
   }
 }
 
-
+// Цикличная рамка вокруг карточки игры
 $geohell-band-gradient: conic-gradient(
   from 0deg,
   rgba(136, 8, 8, 0.5) 0deg,

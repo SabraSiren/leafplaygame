@@ -40,7 +40,7 @@
     margin-left: auto;
     margin-right: 60px;
 
-    @media (max-width: 768px) {
+    @media (max-width: var(--breakpoint-md)) {
       display: none;
     }
   }
@@ -49,14 +49,14 @@
     display: none;
     margin-left: auto;
 
-    @media (max-width: 768px) {
+    @media (max-width: var(--breakpoint-md)) {
       display: flex;
       align-items: center;
     }
   }
 
-  /* Планшет и узкий экран */
-  @media (max-width: 768px) {
+ 
+  @media (max-width: var(--breakpoint-md)) {
     &__nav {
       gap: 1rem;
       margin-right: var(--spacing-lg);
@@ -68,8 +68,8 @@
     }
   }
 
-  /* Мобильные устройства */
-  @media (max-width: 600px) {
+
+  @media (max-width: var(--breakpoint-sm)) {
     &__nav {
       gap: 0.5rem;
       margin-right: var(--spacing-sm);

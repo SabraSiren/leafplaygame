@@ -5,6 +5,6 @@ export const deadblokGame: GameItem = {
   slug: "deadblok",
   title: "Dead Blok",
   mediaSrc: "/games_media/deadblok/deadblok_preview.mp4",
-  // storeUrl: "https://play.google.com/store/apps/details?id=...",
+  // storeUrl: "",
   storeIconSrc: "/socials_icons/steam.svg",
 };

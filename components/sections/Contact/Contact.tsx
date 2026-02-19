@@ -16,9 +16,7 @@ interface ContactPropsDefault {
 interface ContactPropsDownload {
   variant: "download";
   links?: never;
-  /** URL страницы приложения в магазине (например, Google Play). Задаётся в content/games/<slug>.ts */
   storeUrl?: string;
-  /** Путь к иконке магазина (например, /icons/play-store.svg). Задаётся в content/games/<slug>.ts */
   storeIconSrc?: string;
 }
 

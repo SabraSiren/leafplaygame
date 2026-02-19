@@ -5,8 +5,7 @@ import styles from "./PlayDemoButton.module.scss";
 interface PlayDemoButtonProps {
   children: string;
   onClick: () => void;
-  /** Для aria-label, например "Play GeoHell demo" */
-  "aria-label": string;
+  "aria-label": string; // Для aria-label
 }
 
 export function PlayDemoButton({ children, onClick, "aria-label": ariaLabel }: PlayDemoButtonProps) {

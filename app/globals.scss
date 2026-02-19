@@ -1,4 +1,4 @@
-/* Глобальные переменные для цветов, шрифтов и тд. */
+// Глобальные переменные для цветов, шрифтов и тд. 
 :root {
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #111111;
@@ -14,7 +14,7 @@
   --gradient-silver: linear-gradient(135deg, #707070 0%, #c0c0c0 40%, #e8e8e8 50%, #c0c0c0 60%, #707070 100%);
   --gradient-silver-subtle: linear-gradient(90deg, transparent 0%, #606060 25%, #c0c0c0 45%, #e0e0e0 50%, #c0c0c0 55%, #606060 75%, transparent 100%);
 
-  /* Золотистый цвет заголовков Games, About, Contact. */
+  // Золотистый цвет заголовков
   --gradient-heading: linear-gradient(105deg, #423f3b 0%, #5a5752 26%, #726e68 36%, #9c9890 44%, #d4cfc4 48%, #e4dfd2 50%, #d4cfc4 52%, #9c9890 56%, #726e68 64%, #5a5752 74%, #423f3b 100%);
   --gradient-heading-position: 50% 50%;
 
@@ -25,7 +25,6 @@
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
-  --font-size-2xl: 1.5rem;
   --font-size-section: 2rem;
   
   --spacing-sm: 0.5rem;
@@ -35,9 +34,8 @@
   --spacing-4xl: 6rem;
   --header-height: 72px;
   --max-width: 1200px;
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
+  --breakpoint-sm: 600px;   // маленький мобильный
+  --breakpoint-md: 768px;   // планшет / мобильный
   --border-radius-lg: 10px;
   --transition-base: 0.25s ease;
 
@@ -45,7 +43,7 @@
   --color-silver-200-10: rgba(192, 192, 192, 0.1);
   --color-silver-400-10: rgba(128, 128, 128, 0.1);
 
-  /* Фон - радиальный градиент за секциями. */
+  // Фон - радиальный градиент за секциями. 
   --bg-accent-radial: radial-gradient(
     ellipse 80% 50% at 50% 0%,
     rgba(30, 30, 30, 0.6) 0%,
@@ -53,7 +51,7 @@
   );
 }
 
-/* Сброс и настройка базовых стилей браузера. */
+// Сброс и настройка базовых стилей браузера
 *,
 *::before,
 *::after {
@@ -83,7 +81,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* noise-текстура поверх фона. */
+  // noise-текстура поверх фона. 
   &::before {
     content: "";
     position: fixed;

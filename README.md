@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LeafPlay
 
-## Getting Started
+Сайт инди-игровой студии LeafPlay. Витрина игр, описания, демо и ссылки на магазины.
 
-First, run the development server:
+## Технологии и библиотеки
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16** — React-фреймворк (App Router)
+- **React 19** — UI-библиотека
+- **TypeScript** — типизация
+- **SASS/SCSS** — стили, CSS-модули
+- **next/font** — шрифты (Inter, Montserrat, Orbitron)
+- **next/image** — оптимизация изображений
+- **Turbopack** — сборка в dev-режиме
+- **ESLint** — линтинг
+
+## Функционал
+
+### Главная страница
+- Секция **Games** — карточки игр с превью (видео/изображение), ссылками на страницы
+- Секция **About** — описание студии
+- Секция **Contact** — контакты, ссылки на соцсети и магазины
+
+### Страницы игр (`/games/[slug]`)
+- Описание игры (GeoHell — структурированный текст; Dead Blok — краткий)
+- **Play demo** — для GeoHell: встроенная демо-версия (iframe), предзагрузка при заходе на страницу
+- Кнопка **Download** со ссылкой на Google Play / Steam
+- Ссылка на политику конфиденциальности игры
+
+### Политика конфиденциальности
+- Общая страница `/privacy`
+- Отдельные страницы `/games/[slug]/privacy` для каждой игры
+
+### Другое
+- Адаптивная вёрстка (600px — мобильный, 768px — планшет)
+- Бургер-меню на мобильных
+- Локализация (английский)
+- SEO: sitemap.xml, robots.txt, метаданные, Open Graph
+
+## Структура проекта
+
+```
+├── app/                 # App Router
+│   ├── globals.scss     # Глобальные стили и переменные
+│   ├── games/[slug]/    # Страницы игр и их политики
+│   ├── privacy/         # Общая политика
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── layout/          # Header, Footer, Container, GamePageLayout
+│   ├── sections/        # About, Contact, Games, Privacy
+│   └── ui/              # PlayDemoButton
+├── content/             # Данные игр, соцсетей, сайта
+├── context/             # LocaleContext
+├── demo/                # Демо-плеер и GeoHell iframe
+├── lib/                 # routes
+├── localization/        # Переводы (en)
+└── styles/              # Общие стили, стили по играм (geohell, deadblok)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Запуск
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Откройте [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Скрипты
 
-To learn more about Next.js, take a look at the following resources:
+| Команда | Описание |
+|---------|----------|
+| `npm run dev` | Dev-сервер с Turbopack |
+| `npm run build` | Сборка для продакшена |
+| `npm run start` | Запуск продакшен-сервера |
+| `npm run lint` | ESLint |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Переменные окружения
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Создайте `.env` на основе `.env.example`:
 
-## Deploy on Vercel
+- `NEXT_PUBLIC_SITE_URL` — публичный URL сайта (sitemap, robots, Open Graph). На Vercel можно не задавать — подставится `VERCEL_URL`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Деплой
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Проект настроен для деплоя на [Vercel](https://vercel.com). Поддерживаются последние версии Chrome, Safari, Edge и Firefox.

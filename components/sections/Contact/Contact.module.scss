@@ -55,7 +55,7 @@
     transition: filter var(--transition-base);
     filter: brightness(0) invert(1);
 
-    @media (min-width: 768px) {
+    @media (min-width: var(--breakpoint-md)) {
       width: 56px;
     }
   }
