@@ -5,7 +5,7 @@ import { join } from "path";
 export async function GET() {
   try {
     const content = await readFile(
-      join(process.cwd(), "app-adds.txt"),
+      join(process.cwd(), "app-ads.txt"),
       "utf-8"
     );
     return new NextResponse(content, {
