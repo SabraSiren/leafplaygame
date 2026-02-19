@@ -21,8 +21,8 @@
 - Секция **Contact** — контакты, ссылки на соцсети
 
 ### Страницы игр (`/games/[slug]`)
-- Описание игры 
-- **Play demo** — встроенная демо-версия (iframe), предзагрузка при заходе на страницу
+- Описание игры
+- **Play demo** — встроенная демо-версия (iframe). Перед рендером проверяется доступность demo-сервера; при недоступности показывается превью без кнопки
 - Кнопка **Download** со ссылкой на стор
 - Ссылка на политику конфиденциальности игры
 
@@ -40,13 +40,14 @@
 
 ```
 ├── app/                 # App Router
+│   ├── api/check-demo/  # API проверки доступности demo-сервера
 │   ├── globals.scss     # Глобальные стили и переменные
 │   ├── games/[slug]/    # Страницы игр и их политики
 │   ├── privacy/         # Общая политика
 │   ├── robots.ts
 │   └── sitemap.ts
 ├── components/
-│   ├── layout/          # Header, Footer, Container, GamePageLayout
+│   ├── layout/          # Header, Footer, Container, GamePageLayout, GamePageCard
 │   ├── sections/        # About, Contact, Games, Privacy
 │   └── ui/              # PlayDemoButton
 ├── content/             # Данные игр, соцсетей, сайта
